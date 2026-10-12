@@ -542,3 +542,158 @@ h1 {
     }
   }
 }
+
+.primary-button,
+.secondary-button {
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.primary-button {
+  color: #fff;
+  background: #4169e1;
+  border: 1px solid #5478e8;
+}
+
+.primary-button:hover {
+  background: #3155c5;
+}
+
+.secondary-button {
+  color: #e2e8f0;
+  background: #171c29;
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.company-form {
+  margin: 22px 0;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  background: #10131c;
+}
+
+.company-form[hidden] {
+  display: none;
+}
+
+.company-form h4 {
+  margin: 0 0 20px;
+  font-size: 17px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  min-height: 43px;
+  padding: 10px 12px;
+  color: #f8fafc;
+  background: #090a0f;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 8px;
+  font: inherit;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: 2px solid rgba(65,105,225,.5);
+  border-color: #4169e1;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#companyMessage {
+  color: #b8c7ff;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.company-list-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.company-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.company-table th,
+.company-table td {
+  padding: 15px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  font-size: 12px;
+}
+
+.company-table th {
+  color: #9aa4b8;
+  font-weight: 600;
+}
+
+.company-table td {
+  color: #e2e8f0;
+}
+
+.company-status {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: #20283a;
+}
+
+.company-status.active {
+  color: #86efac;
+  background: rgba(22,163,74,.13);
+}
+
+.company-status.pending {
+  color: #fde68a;
+  background: rgba(202,138,4,.13);
+}
+
+.company-status.inactive {
+  color: #fca5a5;
+  background: rgba(220,38,38,.13);
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-heading {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .primary-button {
+    padding: 0 11px;
+    font-size: 12px;
+  }
+}
