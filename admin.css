@@ -808,3 +808,10 @@ h1 {
     grid-template-columns: 1fr 1fr;
   }
 }
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
