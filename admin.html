@@ -29,7 +29,7 @@
       <div class="sidebar-bottom">
         <div class="admin-avatar">A</div>
         <div class="admin-info">
-          <strong>Administrador</strong>
+          <strong id="adminName">Administrador</strong>
           <span>Área de gestão</span>
         </div>
         <button id="logoutButton" class="logout-button" title="Sair">↗</button>
@@ -63,8 +63,8 @@
             <span>Empresas cadastradas</span>
             <span class="stat-icon">▣</span>
           </div>
-          <strong>—</strong>
-          <p>Aguardando conexão com o banco</p>
+          <strong id="companyCount">0</strong>
+          <p>Empresas registradas</p>
         </article>
 
         <article class="stat-card">
@@ -72,8 +72,8 @@
             <span>Clientes ativos</span>
             <span class="stat-icon">♙</span>
           </div>
-          <strong>—</strong>
-          <p>Aguardando conexão com o banco</p>
+          <strong id="clientCount">0</strong>
+          <p>Contas de clientes cadastradas</p>
         </article>
 
         <article class="stat-card">
@@ -82,7 +82,7 @@
             <span class="stat-icon">◎</span>
           </div>
           <strong>—</strong>
-          <p>Integração de atendimento futura</p>
+          <p>Integração futura</p>
         </article>
 
         <article class="stat-card">
@@ -90,28 +90,95 @@
             <span>Status da plataforma</span>
             <span class="stat-icon">◇</span>
           </div>
-          <strong class="pending">Em configuração</strong>
-          <p>Autenticação ainda não conectada</p>
+          <strong class="pending">Conectando</strong>
+          <p id="connectionStatus">Verificando acesso</p>
         </article>
       </section>
 
-      <section class="content-grid">
-        <article class="panel" id="empresas">
-          <div class="panel-heading">
-            <div>
-              <span class="overline">GESTÃO DE NEGÓCIOS</span>
-              <h3>Empresas</h3>
+      <section class="panel" id="empresas">
+        <div class="panel-heading">
+          <div>
+            <span class="overline">GESTÃO DE NEGÓCIOS</span>
+            <h3>Empresas</h3>
+          </div>
+
+          <button id="newCompanyButton" class="primary-button" type="button">
+            + Nova empresa
+          </button>
+        </div>
+
+        <form id="companyForm" class="company-form" hidden>
+          <h4>Cadastrar empresa</h4>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="companyName">Nome da empresa *</label>
+              <input id="companyName" name="companyName"
+                type="text" maxlength="150" required
+                placeholder="Ex.: Empresa Exemplo">
             </div>
-            <span class="tag">Banco pendente</span>
+
+            <div class="form-field">
+              <label for="companyContact">Nome do responsável</label>
+              <input id="companyContact" name="companyContact"
+                type="text" maxlength="150"
+                placeholder="Nome do responsável">
+            </div>
+
+            <div class="form-field">
+              <label for="companyEmail">E-mail de contato</label>
+              <input id="companyEmail" name="companyEmail"
+                type="email" maxlength="254"
+                placeholder="contato@empresa.com">
+            </div>
+
+            <div class="form-field">
+              <label for="companyPhone">Telefone</label>
+              <input id="companyPhone" name="companyPhone"
+                type="tel" maxlength="30"
+                placeholder="(27) 99999-9999">
+            </div>
+
+            <div class="form-field">
+              <label for="companyStatus">Status</label>
+              <select id="companyStatus" name="companyStatus">
+                <option value="active">Ativa</option>
+                <option value="pending">Pendente</option>
+                <option value="inactive">Inativa</option>
+              </select>
+            </div>
           </div>
 
-          <div class="empty-state">
-            <div class="empty-icon">▣</div>
-            <strong>Nenhuma empresa carregada</strong>
-            <p>Quando o banco de dados estiver conectado, as empresas cadastradas aparecerão aqui.</p>
+          <div class="form-actions">
+            <button id="cancelCompanyButton" class="secondary-button"
+              type="button">Cancelar</button>
+            <button id="saveCompanyButton" class="primary-button"
+              type="submit">Salvar empresa</button>
           </div>
-        </article>
 
+          <p id="companyMessage" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="company-list-wrap">
+          <table class="company-table">
+            <thead>
+              <tr>
+                <th>Empresa</th>
+                <th>Responsável</th>
+                <th>Contato</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="companyTableBody">
+              <tr>
+                <td colspan="4">Carregando empresas...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="content-grid">
         <article class="panel activity-panel" id="atividade">
           <div class="panel-heading">
             <div>
@@ -122,23 +189,22 @@
 
           <div class="empty-state">
             <div class="empty-icon">◷</div>
-            <strong>Sem atividades registradas</strong>
-            <p>Os eventos reais serão exibidos depois da integração.</p>
+            <strong>Atividade</strong>
+            <p>O histórico de eventos será conectado em uma próxima etapa.</p>
           </div>
         </article>
-      </section>
 
-      <section class="panel clients-panel" id="clientes">
-        <div class="panel-heading">
-          <div>
-            <span class="overline">CONTAS E ACESSOS</span>
-            <h3>Gestão de clientes</h3>
+        <article class="panel" id="clientes">
+          <div class="panel-heading">
+            <div>
+              <span class="overline">CONTAS E ACESSOS</span>
+              <h3>Gestão de clientes</h3>
+            </div>
           </div>
-        </div>
-        <p class="section-description">
-          A área de cadastro e gerenciamento de contas será habilitada
-          depois de configurarmos a autenticação segura.
-        </p>
+          <p class="section-description">
+            O cadastro de contas individuais será conectado em uma próxima etapa.
+          </p>
+        </article>
       </section>
 
       <section class="panel clients-panel" id="configuracoes">
@@ -149,17 +215,18 @@
           </div>
         </div>
         <p class="section-description">
-          As configurações de acesso, permissões e dados serão conectadas ao backend.
+          As configurações de acesso e permissões serão gerenciadas pelo backend.
         </p>
       </section>
 
       <footer class="footer">
         <span>OLIVEIRA TECH</span>
-        <span>Plataforma de gestão · Protótipo</span>
+        <span>Plataforma de gestão</span>
       </footer>
     </main>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="admin.js"></script>
 </body>
 </html>
