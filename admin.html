@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090A0F">
+  <title>Administração | Oliveira Tech</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo">OT</span>
+        <span>OLIVEIRA <b>TECH</b></span>
+      </a>
+
+      <div class="menu-label">ADMINISTRAÇÃO</div>
+
+      <nav class="menu">
+        <a href="#inicio" class="menu-link active">▦ <span>Visão geral</span></a>
+        <a href="#empresas" class="menu-link">▣ <span>Empresas</span></a>
+        <a href="#clientes" class="menu-link">♙ <span>Clientes</span></a>
+        <a href="#atividade" class="menu-link">◷ <span>Atividade recente</span></a>
+        <a href="#configuracoes" class="menu-link">⚙ <span>Configurações</span></a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="admin-avatar">A</div>
+        <div class="admin-info">
+          <strong>Administrador</strong>
+          <span>Área de gestão</span>
+        </div>
+        <button id="logoutButton" class="logout-button" title="Sair">↗</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <span class="breadcrumb">Oliveira Tech / Administração</span>
+          <h1 id="inicio">Visão geral</h1>
+        </div>
+        <div class="topbar-right">
+          <span class="online-dot"></span>
+          <span class="topbar-status">Painel administrativo</span>
+        </div>
+      </header>
+
+      <section class="welcome">
+        <div>
+          <span class="overline">CENTRAL DE CONTROLE</span>
+          <h2>Bem-vindo à gestão.</h2>
+          <p>Acompanhe as empresas e organize sua operação em um só lugar.</p>
+        </div>
+        <div class="welcome-symbol">OT<span>.</span></div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <div class="stat-top">
+            <span>Empresas cadastradas</span>
+            <span class="stat-icon">▣</span>
+          </div>
+          <strong>—</strong>
+          <p>Aguardando conexão com o banco</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span>Clientes ativos</span>
+            <span class="stat-icon">♙</span>
+          </div>
+          <strong>—</strong>
+          <p>Aguardando conexão com o banco</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span>Atendimentos</span>
+            <span class="stat-icon">◎</span>
+          </div>
+          <strong>—</strong>
+          <p>Integração de atendimento futura</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span>Status da plataforma</span>
+            <span class="stat-icon">◇</span>
+          </div>
+          <strong class="pending">Em configuração</strong>
+          <p>Autenticação ainda não conectada</p>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel" id="empresas">
+          <div class="panel-heading">
+            <div>
+              <span class="overline">GESTÃO DE NEGÓCIOS</span>
+              <h3>Empresas</h3>
+            </div>
+            <span class="tag">Banco pendente</span>
+          </div>
+
+          <div class="empty-state">
+            <div class="empty-icon">▣</div>
+            <strong>Nenhuma empresa carregada</strong>
+            <p>Quando o banco de dados estiver conectado, as empresas cadastradas aparecerão aqui.</p>
+          </div>
+        </article>
+
+        <article class="panel activity-panel" id="atividade">
+          <div class="panel-heading">
+            <div>
+              <span class="overline">MONITORAMENTO</span>
+              <h3>Atividade recente</h3>
+            </div>
+          </div>
+
+          <div class="empty-state">
+            <div class="empty-icon">◷</div>
+            <strong>Sem atividades registradas</strong>
+            <p>Os eventos reais serão exibidos depois da integração.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel clients-panel" id="clientes">
+        <div class="panel-heading">
+          <div>
+            <span class="overline">CONTAS E ACESSOS</span>
+            <h3>Gestão de clientes</h3>
+          </div>
+        </div>
+        <p class="section-description">
+          A área de cadastro e gerenciamento de contas será habilitada
+          depois de configurarmos a autenticação segura.
+        </p>
+      </section>
+
+      <section class="panel clients-panel" id="configuracoes">
+        <div class="panel-heading">
+          <div>
+            <span class="overline">PREFERÊNCIAS</span>
+            <h3>Configurações</h3>
+          </div>
+        </div>
+        <p class="section-description">
+          As configurações de acesso, permissões e dados serão conectadas ao backend.
+        </p>
+      </section>
+
+      <footer class="footer">
+        <span>OLIVEIRA TECH</span>
+        <span>Plataforma de gestão · Protótipo</span>
+      </footer>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
