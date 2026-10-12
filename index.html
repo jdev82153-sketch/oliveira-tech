@@ -5,101 +5,501 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090A0F">
-  <meta name="description" content="Oliveira Tech — tecnologia e automação inteligente para empresas.">
-  <title>Oliveira Tech | Plataforma</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta
+    name="description"
+    content="Oliveira Tech — tecnologia, gestão e soluções digitais para empresas."
+  >
+
+  <title>Oliveira Tech | Acesse sua conta</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #090A0F;
+      --surface: #10131C;
+      --surface-light: #171C29;
+      --blue: #4169E1;
+      --blue-light: #7895FF;
+      --text: #F5F7FC;
+      --muted: #9AA4B8;
+      --border: rgba(255,255,255,.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(65,105,225,.16), transparent 38%),
+        radial-gradient(ellipse at 90% 85%, rgba(13,27,42,.75), transparent 42%),
+        var(--background);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 25px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(120,149,255,.45);
+      border-radius: 13px;
+      background: linear-gradient(145deg, #1C2A4A, #10131C);
+      color: #AFC0FF;
+      font-size: 22px;
+      font-weight: 800;
+      box-shadow: 0 8px 28px rgba(65,105,225,.14);
+    }
+
+    .brand-name {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -.6px;
+    }
+
+    .brand-name span {
+      color: var(--blue-light);
+    }
+
+    .topbar-label {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1240px;
+      margin: auto;
+      padding: 35px 6% 65px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
+      align-items: center;
+      gap: clamp(35px, 8vw, 100px);
+    }
+
+    .hero {
+      max-width: 590px;
+      padding: 20px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 13px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(120,149,255,.25);
+      border-radius: 999px;
+      background: rgba(65,105,225,.08);
+      color: #B8C7FF;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #6F91FF;
+      box-shadow: 0 0 12px rgba(111,145,255,.7);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 650px;
+      font-size: clamp(39px, 5.2vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -2.7px;
+      font-weight: 800;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--blue-light);
+    }
+
+    .hero-description {
+      max-width: 470px;
+      margin: 24px 0 32px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .features {
+      display: grid;
+      gap: 17px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: #DCE2EF;
+      font-size: 14px;
+    }
+
+    .feature-icon {
+      width: 35px;
+      height: 35px;
+      flex: 0 0 35px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255,255,255,.035);
+      color: #AFC0FF;
+    }
+
+    .login-card {
+      width: 100%;
+      padding: clamp(25px, 4vw, 36px);
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 23px;
+      background: linear-gradient(
+        145deg,
+        rgba(23,28,41,.97),
+        rgba(13,16,25,.97)
+      );
+      box-shadow: 0 30px 90px rgba(0,0,0,.30);
+    }
+
+    .card-top {
+      margin-bottom: 29px;
+    }
+
+    .card-top h2 {
+      margin: 0 0 9px;
+      font-size: 27px;
+      letter-spacing: -.8px;
+    }
+
+    .card-top p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .field {
+      margin-bottom: 19px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 9px;
+      color: #E4E8F2;
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      min-height: 49px;
+      padding: 13px 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 11px;
+      outline: none;
+      background: #0C0F17;
+      color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .field input::placeholder {
+      color: #687286;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--blue-light);
+      box-shadow: 0 0 0 3px rgba(65,105,225,.13);
+    }
+
+    #password {
+      padding-right: 83px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 13px;
+      transform: translateY(-50%);
+      padding: 5px 0 5px 8px;
+      border: 0;
+      background: transparent;
+      color: #AFC0FF;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .login-button {
+      width: 100%;
+      min-height: 51px;
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 11px;
+      background: linear-gradient(100deg, #3659C7, #5378ED);
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 750;
+      cursor: pointer;
+      box-shadow: 0 9px 25px rgba(65,105,225,.18);
+      transition: transform .2s, filter .2s;
+    }
+
+    .login-button:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    .login-button:disabled {
+      cursor: wait;
+      opacity: .7;
+      transform: none;
+    }
+
+    .login-message {
+      min-height: 20px;
+      margin: 15px 0 0;
+      color: #B8C7FF;
+      font-size: 12px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    .security-note {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      margin-top: 21px;
+      color: #8993A7;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .security-note span {
+      color: #8EA8FF;
+    }
+
+    footer {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 20px 6% 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      border-top: 1px solid rgba(255,255,255,.07);
+      color: #788296;
+      font-size: 11px;
+    }
+
+    .footer-brand {
+      color: #C4CBDA;
+      font-weight: 700;
+    }
+
+    @media (max-width: 800px) {
+      .topbar {
+        padding-top: 20px;
+        padding-bottom: 15px;
+      }
+
+      .topbar-label {
+        font-size: 9px;
+        letter-spacing: .7px;
+        text-align: right;
+      }
+
+      main {
+        grid-template-columns: 1fr;
+        max-width: 530px;
+        padding-top: 30px;
+        padding-bottom: 40px;
+        gap: 34px;
+      }
+
+      .hero {
+        padding: 0;
+      }
+
+      .eyebrow {
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-size: clamp(38px, 9vw, 53px);
+        letter-spacing: -1.8px;
+      }
+
+      .hero-description {
+        margin: 17px 0 22px;
+        font-size: 14px;
+      }
+
+      .features {
+        gap: 12px;
+      }
+
+      .feature {
+        font-size: 12px;
+      }
+
+      .feature-icon {
+        width: 31px;
+        height: 31px;
+        flex-basis: 31px;
+      }
+
+      .login-card {
+        padding: 25px 21px;
+      }
+
+      footer {
+        padding-top: 17px;
+        font-size: 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body {
+        transition: none;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <div class="app-shell">
+  <div class="page">
 
     <header class="topbar">
-      <a class="brand" href="#" aria-label="Oliveira Tech início">
-        <span class="brand-mark">O<span>T</span></span>
-        <span class="brand-name">OLIVEIRA<span>TECH</span></span>
+      <a class="brand" href="index.html" aria-label="Oliveira Tech - início">
+        <div class="brand-icon">O</div>
+        <div class="brand-name">OLIVEIRA <span>TECH</span></div>
       </a>
 
-      <span class="status">
-        <span class="status-dot"></span>
-        Plataforma digital
-      </span>
+      <div class="topbar-label">Plataforma de gestão digital</div>
     </header>
 
-    <main class="hero">
-      <section class="hero-content">
+    <main>
+      <section class="hero">
         <div class="eyebrow">
-          <span class="eyebrow-line"></span>
-          TECNOLOGIA PARA NEGÓCIOS
+          <span class="status-dot"></span>
+          Tecnologia para crescer
         </div>
 
         <h1>
-          Sua empresa.<br>
-          Mais <span class="highlight">inteligente.</span>
+          Sua empresa.
+          <span>Em outro nível.</span>
         </h1>
 
         <p class="hero-description">
-          Uma nova forma de organizar o atendimento, conectar clientes
-          e preparar sua empresa para crescer com tecnologia.
+          Acesse sua plataforma Oliveira Tech e tenha suas ferramentas
+          e informações organizadas em um ambiente digital profissional.
         </p>
 
-        <div class="feature-list">
+        <div class="features">
           <div class="feature">
-            <span class="feature-icon">01</span>
-            <div>
-              <strong>Atendimento inteligente</strong>
-              <p>Uma experiência mais organizada para seus clientes.</p>
-            </div>
+            <div class="feature-icon" aria-hidden="true">↗</div>
+            <span>Gestão centralizada em um só lugar</span>
           </div>
 
           <div class="feature">
-            <span class="feature-icon">02</span>
-            <div>
-              <strong>Gestão centralizada</strong>
-              <p>Informações e ferramentas em um só ambiente.</p>
-            </div>
+            <div class="feature-icon" aria-hidden="true">⌘</div>
+            <span>Ambiente pensado para empresas</span>
           </div>
 
           <div class="feature">
-            <span class="feature-icon">03</span>
-            <div>
-              <strong>Tecnologia para crescer</strong>
-              <p>Uma estrutura pensada para acompanhar seu negócio.</p>
-            </div>
+            <div class="feature-icon" aria-hidden="true">◈</div>
+            <span>Acesso individual por conta</span>
           </div>
-        </div>
-
-        <div class="hero-footer">
-          <span class="footer-line"></span>
-          <span>TECNOLOGIA · ESTRATÉGIA · RESULTADOS</span>
         </div>
       </section>
 
-      <section class="login-area">
-        <div class="login-card">
-          <div class="card-top">
-            <div class="mini-logo">OT</div>
-            <span class="access-label">ÁREA RESTRITA</span>
-          </div>
+      <section class="login-card" aria-labelledby="loginTitle">
+        <div class="card-top">
+          <h2 id="loginTitle">Bem-vindo de volta</h2>
+          <p>Entre com os dados da sua conta para continuar.</p>
+        </div>
 
-          <div class="login-heading">
-            <h2>Bem-vindo de volta.</h2>
-            <p>Acesse o ambiente da sua empresa.</p>
-          </div>
-
-          <form id="loginForm">
+        <form id="loginForm">
+          <div class="field">
             <label for="userType">Tipo de acesso</label>
-            <div class="select-wrap">
-              <select id="userType" name="userType" required>
-                <option value="client">Painel da empresa</option>
-                <option value="admin">Painel administrativo</option>
-              </select>
-              <span class="select-arrow">⌄</span>
-            </div>
+            <select id="userType" name="userType" required>
+              <option value="client">Painel da empresa</option>
+              <option value="admin">Painel administrativo</option>
+            </select>
+          </div>
 
+          <div class="field">
             <label for="email">E-mail</label>
             <input
               id="email"
@@ -109,9 +509,12 @@
               autocomplete="username"
               required
             >
+          </div>
 
+          <div class="field">
             <label for="password">Senha</label>
-            <div class="password-wrap">
+
+            <div class="input-wrap">
               <input
                 id="password"
                 name="password"
@@ -120,33 +523,59 @@
                 autocomplete="current-password"
                 required
               >
-              <button type="button" id="togglePassword" class="password-toggle">
+
+              <button
+                class="toggle-password"
+                id="togglePassword"
+                type="button"
+                aria-label="Mostrar senha"
+              >
                 Mostrar
               </button>
             </div>
-
-            <button class="login-button" type="submit">
-              Entrar na plataforma
-              <span aria-hidden="true">→</span>
-            </button>
-
-            <p id="loginMessage" class="login-message" role="status"></p>
-          </form>
-
-          <div class="security-note">
-            <span class="lock-icon">◇</span>
-            Ambiente de demonstração
           </div>
-        </div>
 
-        <p class="login-caption">
-          OLIVEIRA TECH <span>©</span> TECNOLOGIA PARA EMPRESAS
-        </p>
+          <button class="login-button" type="submit">
+            Entrar na plataforma
+            <span aria-hidden="true">→</span>
+          </button>
+
+          <p
+            class="login-message"
+            id="loginMessage"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </form>
+
+        <div class="security-note">
+          <span aria-hidden="true">●</span>
+          Acesso individual à sua conta
+        </div>
       </section>
     </main>
+
+    <footer>
+      <span>© <span id="currentYear">2026</span>
+        <span class="footer-brand">Oliveira Tech</span>
+      </span>
+      <span>Tecnologia. Gestão. Evolução.</span>
+    </footer>
+
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("loaded");
+
+      const year = document.getElementById("currentYear");
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
 </body>
 </html>
-
