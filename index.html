@@ -1,1 +1,152 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090A0F">
+  <meta name="description" content="Oliveira Tech — tecnologia e automação inteligente para empresas.">
+  <title>Oliveira Tech | Plataforma</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Oliveira Tech início">
+        <span class="brand-mark">O<span>T</span></span>
+        <span class="brand-name">OLIVEIRA<span>TECH</span></span>
+      </a>
+
+      <span class="status">
+        <span class="status-dot"></span>
+        Plataforma digital
+      </span>
+    </header>
+
+    <main class="hero">
+      <section class="hero-content">
+        <div class="eyebrow">
+          <span class="eyebrow-line"></span>
+          TECNOLOGIA PARA NEGÓCIOS
+        </div>
+
+        <h1>
+          Sua empresa.<br>
+          Mais <span class="highlight">inteligente.</span>
+        </h1>
+
+        <p class="hero-description">
+          Uma nova forma de organizar o atendimento, conectar clientes
+          e preparar sua empresa para crescer com tecnologia.
+        </p>
+
+        <div class="feature-list">
+          <div class="feature">
+            <span class="feature-icon">01</span>
+            <div>
+              <strong>Atendimento inteligente</strong>
+              <p>Uma experiência mais organizada para seus clientes.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <span class="feature-icon">02</span>
+            <div>
+              <strong>Gestão centralizada</strong>
+              <p>Informações e ferramentas em um só ambiente.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <span class="feature-icon">03</span>
+            <div>
+              <strong>Tecnologia para crescer</strong>
+              <p>Uma estrutura pensada para acompanhar seu negócio.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-footer">
+          <span class="footer-line"></span>
+          <span>TECNOLOGIA · ESTRATÉGIA · RESULTADOS</span>
+        </div>
+      </section>
+
+      <section class="login-area">
+        <div class="login-card">
+          <div class="card-top">
+            <div class="mini-logo">OT</div>
+            <span class="access-label">ÁREA RESTRITA</span>
+          </div>
+
+          <div class="login-heading">
+            <h2>Bem-vindo de volta.</h2>
+            <p>Acesse o ambiente da sua empresa.</p>
+          </div>
+
+          <form id="loginForm">
+            <label for="userType">Tipo de acesso</label>
+            <div class="select-wrap">
+              <select id="userType" name="userType" required>
+                <option value="client">Painel da empresa</option>
+                <option value="admin">Painel administrativo</option>
+              </select>
+              <span class="select-arrow">⌄</span>
+            </div>
+
+            <label for="email">E-mail</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="voce@empresa.com"
+              autocomplete="username"
+              required
+            >
+
+            <label for="password">Senha</label>
+            <div class="password-wrap">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Digite sua senha"
+                autocomplete="current-password"
+                required
+              >
+              <button type="button" id="togglePassword" class="password-toggle">
+                Mostrar
+              </button>
+            </div>
+
+            <button class="login-button" type="submit">
+              Entrar na plataforma
+              <span aria-hidden="true">→</span>
+            </button>
+
+            <p id="loginMessage" class="login-message" role="status"></p>
+          </form>
+
+          <div class="security-note">
+            <span class="lock-icon">◇</span>
+            Ambiente de demonstração
+          </div>
+        </div>
+
+        <p class="login-caption">
+          OLIVEIRA TECH <span>©</span> TECNOLOGIA PARA EMPRESAS
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
